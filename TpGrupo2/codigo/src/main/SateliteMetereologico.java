@@ -83,9 +83,9 @@ public class SateliteMetereologico extends Satelite {
 			}
 
 		} else {
-			// Si el mensaje es para otro, llamar a ENVIAR
-			System.out.println("aca entra al enviar porque no es para mi el msj");
-			this.enviar(mensaje);
+			// Si el mensaje es para otro, llamar a ENVIAR, este sería el reenviar
+			//System.out.println("aca entra al enviar porque no es para mi el msj");
+			//this.enviar(mensaje);
 		}
 	}
 

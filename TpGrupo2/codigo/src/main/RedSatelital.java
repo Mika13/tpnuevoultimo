@@ -45,7 +45,14 @@ public class RedSatelital {
 
 			}
 		}
-
+	}
+	
+	
+	public void reinicializarConsolas() {
+		for (Operador operador : this.operadores) {
+				operador.consola.borrarConsola();
+				System.out.println("Se borro la consola de  " + operador.getID());
+		}
 	}
 
 //Busco en el grafo el operador que quiere enviar el mensaje

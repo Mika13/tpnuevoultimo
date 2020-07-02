@@ -92,31 +92,28 @@ public class Main {
 		RedSatelital redSatelital = getRed();
 		System.out.println(redSatelital);
 
-		// Operacion Ver Clima
-		// ClimaRequest climaReq = new ClimaRequest(0, "E1", "M3", "Temperatura");
-		// ClimaReply climaResp = redSatelital.getClima(climaReq);
-
-		PingRequest preq1 = new PingRequest("E1", "C1");
-
-		redSatelital.inicializarConsola("E1");
-		redSatelital.inicializarConsola("C1");
-		// redSatelital.enviarMensaje(preq1);
-
-		// redSatelital.getOperador("E1").imprimirConsola();
-		// redSatelital.getOperador("C1").imprimirConsola();
+		System.out.println("*************** Ejercicio 2 ***************");
+		
+		redSatelital.reinicializarConsolas();
+		
+		System.out.println("*************** Ejercicio 3 ***************");
+		PingRequest preq3 = new PingRequest("E1", "C1");
+		redSatelital.enviarMensaje(preq3);
+		redSatelital.getOperador("E1").imprimirConsola();
+		redSatelital.getOperador("C1").imprimirConsola();
 
 		System.out.println("*************** Ejercicio 4 ***************");
 
-		PingRequest preq2 = new PingRequest("E2", "E1");
-		redSatelital.enviarMensaje(preq2);
+		PingRequest preq4 = new PingRequest("E2", "E1");
+		redSatelital.enviarMensaje(preq4);
 
 		redSatelital.getOperador("E2").imprimirConsola();
 		redSatelital.getOperador("E1").imprimirConsola();
 
 		System.out.println("*************** Ejercicio 5 ***************");
 
-		PingRequest preq3 = new PingRequest("E3", "M4");
-		redSatelital.enviarMensaje(preq3);
+		PingRequest preq5 = new PingRequest("E3", "M4");
+		redSatelital.enviarMensaje(preq5);
 
 		redSatelital.getOperador("E3").imprimirConsola();
 		redSatelital.getOperador("M4").imprimirConsola();

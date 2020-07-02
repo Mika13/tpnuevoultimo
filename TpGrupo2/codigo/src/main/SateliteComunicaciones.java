@@ -15,35 +15,37 @@ public class SateliteComunicaciones extends Satelite {
 		// TODO Completar esto con condiciones TP pagina 4 / 5
 		// System.out.println("Estoy en el recibir de:" + this.idOperador);
 		// Agrego mensaje a consola
-		this.consola.agregarMensaje(mensaje);
+		if (mensaje.idOperadorDestino.equalsIgnoreCase(this.idOperador)) {
+			this.consola.agregarMensaje(mensaje);
+			if (mensaje.esRequest) {
+				for (Conexion conexion : conexiones) {
+					if (conexion.getDestino().idOperador.equalsIgnoreCase(mensaje.idOperadorOrigen)) {
 
-		if (mensaje.esRequest) {
-			for (Conexion conexion : conexiones) {
-				if (conexion.getDestino().idOperador.equalsIgnoreCase(mensaje.idOperadorOrigen)) {
+						// Cálculo de la latencia : Se utilizará la distancia entre operadores en km
+						// dividido por la velocidad de la luz
+						// (300.000 km/seg) como medida de latencia. Representa el tiempo en segundos en
+						// condiciones ideales
+						// que tarda en viajar un mensaje ida y vuelta entre 2 operadores.
+						if (mensaje instanceof PingRequest) {
+							double latenciaAux = (conexion.getDistancia() / 300000) * 2;
+							// System.out.println("La latencia da:" + latenciaAux);
 
-					// Cálculo de la latencia : Se utilizará la distancia entre operadores en km
-					// dividido por la velocidad de la luz
-					// (300.000 km/seg) como medida de latencia. Representa el tiempo en segundos en
-					// condiciones ideales
-					// que tarda en viajar un mensaje ida y vuelta entre 2 operadores.
-					if (mensaje instanceof PingRequest) {
-						double latenciaAux = (conexion.getDistancia() / 300000) * 2;
-						System.out.println("La latencia da:" + latenciaAux);
+							String contenidoAux = "Latencia: " + latenciaAux;
 
-						String contenidoAux = "Latencia: " + latenciaAux;
+							PingReply respuesta = new PingReply(this.idOperador, mensaje.idOperadorOrigen,
+									contenidoAux);
 
-						PingReply respuesta = new PingReply(this.idOperador, mensaje.idOperadorOrigen, contenidoAux);
-
-						this.enviar(respuesta);
+							this.enviar(respuesta);
+						}
 					}
-
 				}
 			}
-		} else {
-			// es solo una respuesta, no hago nada, solo lo agrego a mi consola (ya lo hice
-			// mas arriba)
 		}
-
+		else {
+			// Si el mensaje es para otro, llamar a ENVIAR, seria el reenviar
+			//System.out.println("aca entra al enviar porque no es para mi el msj");
+			//this.enviar(mensaje);
+		}
 	}
 
 	@Override
