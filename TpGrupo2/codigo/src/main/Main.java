@@ -144,9 +144,9 @@ public class Main {
 		System.out.println("*************** Punto b ***************");
 		
 		Operador satelite = redSatelital.getOperador("M1");
-		System.out.println(((SateliteMetereologico) satelite).getPresion());
+		System.out.println("presion antes de simular: " + ((SateliteMetereologico) satelite).getPresion());
 		redSatelital.actualizarMediciones();
-		System.out.println(((SateliteMetereologico) satelite).getPresion());
+		System.out.println("presion despues de simular: " + ((SateliteMetereologico) satelite).getPresion());
 
 		System.out.println("*************** Punto c ***************");
 

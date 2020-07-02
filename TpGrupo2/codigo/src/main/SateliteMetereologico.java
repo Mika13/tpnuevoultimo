@@ -34,7 +34,7 @@ public class SateliteMetereologico extends Satelite {
 						if (mensaje instanceof PingRequest) {
 
 							double latenciaAux = (conexion.getDistancia() / 300000) * 2;
-							System.out.println("La latencia da:" + latenciaAux);
+							//System.out.println("La latencia da:" + latenciaAux);
 
 							contenidoAux = "Latencia: " + latenciaAux;
 
