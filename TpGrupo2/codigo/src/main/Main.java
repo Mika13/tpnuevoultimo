@@ -145,7 +145,11 @@ public class Main {
 		redSatelital.inicializarConsola("M4");
 
 		System.out.println("*************** Punto b ***************");
-		// Ver como hacer el mediciones random....
+		
+		Operador satelite = redSatelital.getOperador("M1");
+		System.out.println(((SateliteMetereologico) satelite).getPresion());
+		redSatelital.actualizarMediciones();
+		System.out.println(((SateliteMetereologico) satelite).getPresion());
 
 		System.out.println("*************** Punto c ***************");
 

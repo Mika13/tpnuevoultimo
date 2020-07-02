@@ -68,4 +68,16 @@ public class RedSatelital {
 
 	}
 
+	public void actualizarMediciones() {
+		
+		for (Operador operador : operadores) {
+			
+			if(operador instanceof SateliteMetereologico) {
+				
+				((SateliteMetereologico) operador).actualizarMedicion();
+			}
+		}
+			
+		
+	}
 }

@@ -13,11 +13,7 @@ public class SateliteMetereologico extends Satelite {
 	public SateliteMetereologico(String idOperador) {
 		this.idOperador = idOperador;
 		this.consola = new Consola();
-
-		this.temperatura = (float) (Math.random() * 25);
-		this.humedad = (float) (Math.random() * 100);
-		this.nubosidad = (float) (Math.random() * 100);
-		this.presion = (float) (Math.random() * 1500);
+		this.actualizarMedicion();
 
 	}
 
@@ -164,11 +160,43 @@ public class SateliteMetereologico extends Satelite {
 		}
 	}
 
-	public void actualizarMediciones() {
+	public void actualizarMedicion() {
 		this.temperatura = (float) (Math.random() * 25);
 		this.humedad = (float) (Math.random() * 100);
 		this.nubosidad = (float) (Math.random() * 100);
 		this.presion = (float) (Math.random() * 1500);
+	}
+
+	public float getTemperatura() {
+		return temperatura;
+	}
+
+	public void setTemperatura(float temperatura) {
+		this.temperatura = temperatura;
+	}
+
+	public float getHumedad() {
+		return humedad;
+	}
+
+	public void setHumedad(float humedad) {
+		this.humedad = humedad;
+	}
+
+	public float getNubosidad() {
+		return nubosidad;
+	}
+
+	public void setNubosidad(float nubosidad) {
+		this.nubosidad = nubosidad;
+	}
+
+	public float getPresion() {
+		return presion;
+	}
+
+	public void setPresion(float presion) {
+		this.presion = presion;
 	}
 
 }
